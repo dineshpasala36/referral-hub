@@ -30,7 +30,7 @@ const ReferralPage = () => {
     try {
       const { data: referralData, error: refError } = await supabase
         .from("referrals")
-        .select("*, businesses(*)")
+        .select("id, business_id, businesses(*)")
         .eq("unique_code", code)
         .single();
 
