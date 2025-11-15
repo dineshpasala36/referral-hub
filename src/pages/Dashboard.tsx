@@ -72,14 +72,6 @@ const Dashboard = () => {
     navigate("/");
   };
 
-  const copyReferralLink = () => {
-    if (profile?.referral_code) {
-      const link = `${window.location.origin}/ref/${profile.referral_code}`;
-      navigator.clipboard.writeText(link);
-      toast.success("Referral link copied!");
-    }
-  };
-
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -162,34 +154,20 @@ const Dashboard = () => {
         </div>
 
         {/* Quick Actions */}
-        <div className="grid md:grid-cols-2 gap-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Add Business</CardTitle>
-              <CardDescription>Save a new business contact to your private list</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Link to="/businesses/add">
-                <Button className="w-full gap-2">
-                  <Plus className="w-4 h-4" />
-                  Add Business
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Your Referral Link</CardTitle>
-              <CardDescription>Share this link to get referral credit</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Button variant="outline" className="w-full" onClick={copyReferralLink}>
-                Copy Referral Link
+        <Card className="max-w-md">
+          <CardHeader>
+            <CardTitle>Add Business</CardTitle>
+            <CardDescription>Save a new business contact to your private list</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Link to="/businesses/add">
+              <Button className="w-full gap-2">
+                <Plus className="w-4 h-4" />
+                Add Business
               </Button>
-            </CardContent>
-          </Card>
-        </div>
+            </Link>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
