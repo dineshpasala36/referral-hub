@@ -14,12 +14,9 @@ const AddBusiness = () => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     business_name: "",
-    person_name: "",
+    category: "",
     phone: "",
     email: "",
-    category: "",
-    address: "",
-    notes: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -91,73 +88,39 @@ const AddBusiness = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="category">Category</Label>
+                <Label htmlFor="category">Profession *</Label>
                 <Input
                   id="category"
                   name="category"
                   value={formData.category}
                   onChange={handleChange}
+                  required
                   placeholder="e.g., Photography, Real Estate, Auto Repair"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="person_name">Contact Person</Label>
+                <Label htmlFor="phone">Phone Number *</Label>
                 <Input
-                  id="person_name"
-                  name="person_name"
-                  value={formData.person_name}
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  value={formData.phone}
                   onChange={handleChange}
-                  placeholder="e.g., John Smith"
-                />
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="contact@business.com"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone</Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="(555) 123-4567"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="address">Address</Label>
-                <Input
-                  id="address"
-                  name="address"
-                  value={formData.address}
-                  onChange={handleChange}
-                  placeholder="123 Main St, City, State"
+                  required
+                  placeholder="(555) 123-4567"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="notes">Notes</Label>
-                <Textarea
-                  id="notes"
-                  name="notes"
-                  value={formData.notes}
+                <Label htmlFor="email">Email (Optional)</Label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
                   onChange={handleChange}
-                  placeholder="Any additional information..."
-                  rows={4}
+                  placeholder="contact@business.com"
                 />
               </div>
 
